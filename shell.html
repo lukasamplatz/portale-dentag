@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Dentag Italia — Portale Commerciale</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; height: 100%; background: var(--navy); color: var(--text); font-family: 'Inter', sans-serif; }
-  .layout { display: flex; height: 100vh; overflow: hidden; }
+  .layout { display: flex; height: 100vh; height: 100dvh; overflow: hidden; }
 
   .sidebar {
     width: 240px; flex-shrink: 0; background: var(--navy2); border-right: 1px solid var(--border);
@@ -45,13 +45,13 @@
   .contenuto iframe { flex: 1; border: none; width: 100%; }
   .vuoto { flex: 1; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; flex-direction: column; gap: 10px; }
 
-  .hamburger { display: none; position: fixed; top: 14px; left: 14px; z-index: 50; background: var(--navy2); border: 1px solid var(--border); border-radius: 8px; width: 40px; height: 40px; color: var(--text); font-size: 18px; cursor: pointer; }
+  .hamburger { display: none; position: fixed; top: calc(14px + env(safe-area-inset-top, 0px)); left: calc(14px + env(safe-area-inset-left, 0px)); z-index: 50; background: var(--navy2); border: 1px solid var(--border); border-radius: 8px; width: 40px; height: 40px; color: var(--text); font-size: 18px; cursor: pointer; }
 
   @media (max-width: 860px) {
     .hamburger { display: block; }
     .sidebar { position: fixed; left: 0; top: 0; bottom: 0; z-index: 40; transform: translateX(-100%); transition: transform .2s; }
     .sidebar.aperta { transform: translateX(0); box-shadow: 10px 0 30px rgba(0,0,0,.4); }
-    .contenuto { padding-top: 60px; }
+    .contenuto { padding-top: calc(60px + env(safe-area-inset-top, 0px)); }
   }
 </style>
 </head>
@@ -85,12 +85,15 @@
 <script>
   // ===== Configura qui l'URL di ogni modulo (l'URL /exec della relativa dashboard) =====
   var MODULI = {
-    crm_globale:       { etichetta: '🌍 CRM Globale',         url: 'https://script.google.com/macros/s/AKfycbxNBZyFXt2gtGQGrkrPeVwE5QqT_NLwXdAnMICoCnaIlF6xQvOJnwCdC3fgc9h2N-CIAQ/exec' },
-    crm_lukas:         { etichetta: '📋 CRM Lukas',           url: 'https://script.google.com/macros/s/AKfycby3Zq-5bcCs1PqFhuac2o7yVyRmaQ7wOldAzYIaSlzFfxbY5MNOu-wbjWX7FORzpSrS4g/exec' },
-    crm_maurizio:      { etichetta: '📋 CRM Maurizio',        url: 'https://script.google.com/macros/s/AKfycbzBT7YZZ1yIOr44Fu1s1f-bJdpM0Bkuh8VKQc0SAoXp6c9Ro50_X85t-Lwuk51ZsC96Rg/exec' },
-    crm_gabriele:      { etichetta: '📋 CRM Gabriele',        url: 'https://script.google.com/macros/s/AKfycbxiZ71THZvQYgPaXD6iOow5brUJzElTj2ETFcz6kdbD_dIhwwa1bKkZhA0xedmQvIQy5g/exec' },
-    crm_antonio:       { etichetta: '📋 CRM Antonio',         url: 'https://script.google.com/macros/s/AKfycbxyxmm7q_XzR63HWJhX0gJP3lLXGy3cyphsFJCe0mvX47jJJYjWI5HeY6dD5fcbUnzB/exec' },
-    assistenza:        { etichetta: '🛠️ Assistenza Tecnica',  url: 'https://script.google.com/macros/s/AKfycbwACLybEX5CG36Yg-xnOSHTAEG3oSTVwXNf_v8y1EinOU4JhiXd286MU4LkGKgwtRsqOQ/exec' }
+    crm_lukas:         { etichetta: '📋 CRM Lukas',           url: 'https://script.google.com/macros/s/AKfycbxk7DfQGtsZ3AVbGxU4-yOna24y9C2lOF_LXIgqNQmRct8VRi2w3333YTI6xWP2Ww7EBQ/exec' },
+    crm_maurizio:      { etichetta: '📋 CRM Maurizio',        url: 'INCOLLA_URL_DASHBOARD_MAURIZIO' },
+    crm_antonio:       { etichetta: '📋 CRM Antonio',         url: 'INCOLLA_URL_DASHBOARD_ANTONIO' },
+    crm_gabriele:      { etichetta: '📋 CRM Gabriele',        url: 'INCOLLA_URL_DASHBOARD_GABRIELE' },
+    crm_andreas:       { etichetta: '📋 CRM Andreas',         url: 'INCOLLA_URL_DASHBOARD_ANDREAS' },
+    crm_venditedirette:{ etichetta: '📋 CRM Vendite Dirette', url: 'INCOLLA_URL_DASHBOARD_VENDITEDIRETTE' },
+    crm_depositi:      { etichetta: '📋 CRM Depositi',        url: 'INCOLLA_URL_DASHBOARD_DEPOSITI' },
+    crm_globale:       { etichetta: '🌍 CRM Globale',         url: 'INCOLLA_URL_DASHBOARD_GLOBALE' },
+    assistenza:        { etichetta: '🛠️ Assistenza Tecnica',  url: 'INCOLLA_URL_ASSISTENZA' }
   };
 
   var token = sessionStorage.getItem('dentag_token');
