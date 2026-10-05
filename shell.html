@@ -90,7 +90,7 @@
     crm_maurizio:      { etichetta: '📋 CRM Maurizio',        url: 'https://script.google.com/macros/s/AKfycbzBT7YZZ1yIOr44Fu1s1f-bJdpM0Bkuh8VKQc0SAoXp6c9Ro50_X85t-Lwuk51ZsC96Rg/exec' },
     crm_gabriele:      { etichetta: '📋 CRM Gabriele',        url: 'https://script.google.com/macros/s/AKfycbxiZ71THZvQYgPaXD6iOow5brUJzElTj2ETFcz6kdbD_dIhwwa1bKkZhA0xedmQvIQy5g/exec' },
     crm_antonio:       { etichetta: '📋 CRM Antonio',         url: 'https://script.google.com/macros/s/AKfycbxyxmm7q_XzR63HWJhX0gJP3lLXGy3cyphsFJCe0mvX47jJJYjWI5HeY6dD5fcbUnzB/exec' },
-    lead_lukas:        { etichetta: '🎯 LEAD LUKAS',          url: 'https://script.google.com/macros/s/AKfycbxQQlj8rh2qslhzrjvjqi7-ydh3UQP3SX7cKmK-dVKaFoOt5iR0zE3x1nZeuEJ1GxsXyQ/exec' },
+    lead_lukas:        { etichetta: '🎯 LEAD LUKAS',          token: true, url: 'https://script.google.com/macros/s/AKfycbxQQlj8rh2qslhzrjvjqi7-ydh3UQP3SX7cKmK-dVKaFoOt5iR0zE3x1nZeuEJ1GxsXyQ/exec' },
     assistenza:        { etichetta: '💻 HELPDESK',  url: 'https://script.google.com/macros/s/AKfycbwACLybEX5CG36Yg-xnOSHTAEG3oSTVwXNf_v8y1EinOU4JhiXd286MU4LkGKgwtRsqOQ/exec' }
   };
 
@@ -136,7 +136,10 @@
       document.getElementById('contenuto').innerHTML = '<div class="vuoto"><div>Modulo non ancora configurato.</div></div>';
       return;
     }
-    document.getElementById('contenuto').innerHTML = '<iframe src="' + m.url + '"></iframe>';
+    // I moduli con token: true ricevono il token del login, per sapere chi sta lavorando
+    var src = m.url;
+    if (m.token) src += (src.indexOf('?') === -1 ? '?' : '&') + 't=' + encodeURIComponent(token);
+    document.getElementById('contenuto').innerHTML = '<iframe src="' + src + '"></iframe>';
     document.querySelector('.sidebar').classList.remove('aperta');
   }
 
