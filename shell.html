@@ -86,15 +86,15 @@
 <script>
   // ===== Configura qui l'URL di ogni modulo (l'URL /exec della relativa dashboard) =====
   var MODULI = {
-    crm_globale:       { etichetta: '🌍 CRM Globale',         url: 'https://script.google.com/macros/s/AKfycbxNBZyFXt2gtGQGrkrPeVwE5QqT_NLwXdAnMICoCnaIlF6xQvOJnwCdC3fgc9h2N-CIAQ/exec' },
-    crm_lukas:         { etichetta: '📋 CRM Lukas',           url: 'https://script.google.com/macros/s/AKfycbzGuCcVEpFDT1ZOT46KTE9dv-OxJozlsUV_qpp2z6XQ4kVa8jjB2vyYVkPQF4V92aqkYA/exec' },
-    crm_maurizio:      { etichetta: '📋 CRM Maurizio',        url: 'https://script.google.com/macros/s/AKfycbzBT7YZZ1yIOr44Fu1s1f-bJdpM0Bkuh8VKQc0SAoXp6c9Ro50_X85t-Lwuk51ZsC96Rg/exec' },
-    crm_gabriele:      { etichetta: '📋 CRM Gabriele',        url: 'https://script.google.com/macros/s/AKfycbxiZ71THZvQYgPaXD6iOow5brUJzElTj2ETFcz6kdbD_dIhwwa1bKkZhA0xedmQvIQy5g/exec' },
-    crm_antonio:       { etichetta: '📋 CRM Antonio',         url: 'https://script.google.com/macros/s/AKfycbxyxmm7q_XzR63HWJhX0gJP3lLXGy3cyphsFJCe0mvX47jJJYjWI5HeY6dD5fcbUnzB/exec' },
-    lead_globale:      { etichetta: '🎯 LEAD GLOBALE',        token: true, url: 'https://script.google.com/macros/s/AKfycbzj8MMQQCK1_KPKb-A8YErd8_cJ9yK1-5qru0NUF8b48z13Sr3milbWOxfS4NdV4Q8Dyw/exec' },
-    lead_gabriele:     { etichetta: '🎯 LEAD GABRIELE',       token: true, url: 'INSERIRE_URL_WEBAPP_LEAD_GABRIELE' },
-    assistenza:        { etichetta: '💻 HELPDESK',  url: 'https://script.google.com/macros/s/AKfycbwACLybEX5CG36Yg-xnOSHTAEG3oSTVwXNf_v8y1EinOU4JhiXd286MU4LkGKgwtRsqOQ/exec' },
-    interventi:        { etichetta: '🔧 INTERVENTI TECNICI GLOBALE', url: 'https://script.google.com/macros/s/AKfycbxrlTFhKgsceGFqBUE-U5GAGItUPYIkaQ1YCVCH6KvjFXx7e7NoGVewZiKe5hWincCI/exec' }
+    crm_globale:       { etichetta: '🌍 CRM Globale',                                url: 'https://script.google.com/macros/s/AKfycbxNBZyFXt2gtGQGrkrPeVwE5QqT_NLwXdAnMICoCnaIlF6xQvOJnwCdC3fgc9h2N-CIAQ/exec' },
+    crm_lukas:         { etichetta: '📋 CRM Lukas',                                  url: 'https://script.google.com/macros/s/AKfycbzGuCcVEpFDT1ZOT46KTE9dv-OxJozlsUV_qpp2z6XQ4kVa8jjB2vyYVkPQF4V92aqkYA/exec' },
+    crm_maurizio:      { etichetta: '📋 CRM Maurizio',                               url: 'https://script.google.com/macros/s/AKfycbzBT7YZZ1yIOr44Fu1s1f-bJdpM0Bkuh8VKQc0SAoXp6c9Ro50_X85t-Lwuk51ZsC96Rg/exec' },
+    crm_gabriele:      { etichetta: '📋 CRM Gabriele',                               url: 'https://script.google.com/macros/s/AKfycbxiZ71THZvQYgPaXD6iOow5brUJzElTj2ETFcz6kdbD_dIhwwa1bKkZhA0xedmQvIQy5g/exec' },
+    crm_antonio:       { etichetta: '📋 CRM Antonio',                                url: 'https://script.google.com/macros/s/AKfycbxyxmm7q_XzR63HWJhX0gJP3lLXGy3cyphsFJCe0mvX47jJJYjWI5HeY6dD5fcbUnzB/exec' },
+    lead_globale:      { etichetta: '🎯 LEAD GLOBALE',                token: true,   url: 'https://script.google.com/macros/s/AKfycbzj8MMQQCK1_KPKb-A8YErd8_cJ9yK1-5qru0NUF8b48z13Sr3milbWOxfS4NdV4Q8Dyw/exec' },
+    lead_gabriele:     { etichetta: '🎯 LEAD GABRIELE',               token: true,   url: 'INSERIRE_URL_WEBAPP_LEAD_GABRIELE' },
+    assistenza:        { etichetta: '💻 HELPDESK',                                   url: 'https://script.google.com/macros/s/AKfycbwACLybEX5CG36Yg-xnOSHTAEG3oSTVwXNf_v8y1EinOU4JhiXd286MU4LkGKgwtRsqOQ/exec' },
+    interventi:        { etichetta: '🔧 INTERVENTI TECNICI GLOBALE',  token: true,   url: 'https://script.google.com/macros/s/AKfycby3sBrTu195mup7_1QTgQf4ImYFAPeW4NdjD3JF3_fyv2K9AFsDFmAtxz7DG8G4hspk/exec' }
   };
 
   var token = sessionStorage.getItem('dentag_token');
